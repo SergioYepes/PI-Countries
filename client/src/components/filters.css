@@ -1,0 +1,69 @@
+.filters{
+    display: flex;
+    flex-direction: row;
+    font-size: large;
+    border-radius: 0px 10px 10px 0px;
+    border: 2px solid rgb(249, 242, 242);
+    background-color: var(--contrast);
+    width: max-content;
+    padding-left: 10px;
+    color: rgb(236, 237, 234);
+    box-shadow: 1px 1px 10px rgb(241, 10, 199);
+}
+.tittledisplay{
+    cursor: pointer;
+    display: flex;
+    color:white;
+}
+.hiddenFilters{
+    display:flex;
+    flex-direction: row;
+    gap: 170px;
+}
+/* #filtersdisplay{
+    display:none
+}
+#filtersdisplay ~ .hiddenFilters{
+    display:none;
+    color: white
+}
+#filtersDisplay:checked ~ .hiddenFilters {
+    display: flex;
+    margin-left: 0;
+    transition: ease-in;
+}
+.tittleFilters{
+    margin-top: 25px;
+} */
+.filterContinent{
+    margin: 10px;
+}
+.Activities{
+    margin: 10px;
+    display: flex;
+}
+.OrderByName{
+    margin: 10px
+}
+.OrderByPob{
+    margin: 10px;
+}
+.DeleteAct{
+    display: flex;
+}
+.eachActivity{
+    display: flex;
+    background-color: var(--contrast);
+    margin: 5px;
+    border-radius: 5px;
+    color: white;
+}
+.activityName{
+    margin: 0px;
+}
+.close{
+    background-color: red;
+    color: white;
+    height: 20px;
+    margin-left: 5px;
+}

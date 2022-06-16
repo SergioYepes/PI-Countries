@@ -1,0 +1,26 @@
+
+
+body{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background);
+    height: 100vh;
+    background:url("https://www.etapainfantil.com/wp-content/uploads/2015/11/Mapamundi-antiguo-a%C3%B1o-1860-d.C.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  
+  :root {
+    --background: #fff;
+    --container-primary: #ffffff;
+    --container: #252222;
+    --border: #2A3B47;
+    --text-secondary: #FF3B3F;
+    --main: #838383;
+    --text-primary: #000;
+    --accent: #52A5E0;
+    --shadow: rgba(15, 15, 15, 0.404);
+    --contrast: #06314cca;
+    --contrastV2: #372838b7;
+  }

@@ -1,0 +1,17 @@
+.Home{
+    display:flex;
+    flex-direction: column;
+    height: inherit;
+}
+.Filters{
+    position: flex;
+    top: 100px;
+    align-items: center;
+}
+.Paginado{
+    align-self: center;
+}
+.welcome{
+    display: flex;
+    padding-left: 45%;
+}

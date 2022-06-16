@@ -1,0 +1,48 @@
+.newActivity{
+    margin-top: 0px;
+    padding-top: 30px;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    border: 2px solid rgba(255, 217, 0, 0.314);
+    background-color:var(--main);
+    align-items: center;
+    width: 600px;
+    top:25%;
+    right: 30%;
+    align-content: center;
+    padding-bottom: 10px;
+}
+.formActivity{
+    width: 600px;
+}
+.info{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    justify-content:space-between;
+}
+.displayCountries{
+    display: flex;
+}
+.eachCountry{
+    display: flex;
+    background-color: var(--contrast);
+    padding:5px;
+    border-radius: 5px;
+    color:beige;
+    justify-content: center;
+}
+.countyName{
+    margin: 0px;
+}
+.closeButton{
+    background-color: red;
+    color:white;
+    height: 20px;
+    margin-left: 5px;
+}
+.Link{
+    color:white;
+    position: flex;
+}

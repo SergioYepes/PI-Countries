@@ -1,0 +1,28 @@
+.navbar{
+    display: flex;
+    height: 100px;
+    border-bottom: 1px solid black;
+    width: 100%;
+    background-color: var(--contrastV2);
+    justify-content: space-around;
+    align-items: center;
+}
+.links{
+    display:flex;
+}
+.Link{
+    text-decoration: none;
+}
+.links div{
+    display: flex;
+    font-size: 35px;
+    cursor: pointer;
+    color: white;
+    padding: 1vh;
+}
+.searchBar{
+    display: flex;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

@@ -1,0 +1,29 @@
+const{DataTypes}=require("sequelize");
+const { all } = require("../routes");
+module.exports=(sequelize)=>{
+    sequelize.define("activity",{
+        id:{
+            type:DataTypes.UUID,
+            defaultValue:DataTypes.UUIDV4,
+            primaryKey:true,
+            allowNull:false
+        },
+        nombre:{
+            type:DataTypes.STRING,
+            allowNull:false
+        },
+        Dificultad:{
+            type:DataTypes.INTEGER,
+            validate:{
+                min:1,
+                max:5,
+                 } 
+        },
+        Temporada:{
+            type:DataTypes.ENUM("Verano", "Otoño", "Invierno","Primavera"),
+        },
+        Duracion:{
+            type:DataTypes.INTEGER
+        },
+    },{timestamps:false})
+}
