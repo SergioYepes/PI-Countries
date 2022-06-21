@@ -16,7 +16,7 @@
     color: rgb(245, 203, 217);
     font-size: 30px;
     background: var(--contrastV2);
-    border: 2px solid rgba(255, 255, 255, 0.147);
+    border: 10px ridge rgba(255, 255, 255, 0.147);
     box-shadow: 0 2rem 2rem var(--contrastV2);
 }
 .landingLink{

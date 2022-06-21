@@ -9,7 +9,7 @@
     background-color: var(--contrast);
     max-height: 400px;
     min-height: 400px;
-    font-size:50px;
+    font-size:30px;
 }
 
 .card:hover{
@@ -22,7 +22,6 @@
     max-width: 300px;
     min-width: 300px;
     max-height: 150px;
-    border-radius: 10px;
 }
 
 .infoCard {
@@ -30,18 +29,19 @@
     width: 300px;
     cursor: pointer;
     margin-left: 5px;
+    
 }
 
 .continents{
     justify-content: center;
 }
 
-.title {
+.titulo {
     margin-left: 25px;
     margin-right: 50px;
     font-size: 25px;
     text-align: left;
-    width: fit-content;    
+    text-shadow: 1px 1px 10px rgb(241, 179, 10);  
 }
 
 .LinkD{

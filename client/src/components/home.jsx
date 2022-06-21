@@ -14,7 +14,7 @@ function Home(){
     const countryPG= useSelector((state)=>state.countryPG)
     const allCountries= useSelector((state)=>state.allCountries)//mapStateToProps
     const [currentValue,setValue]=useState(1)   
-    const [TotalPage]=useState(10)
+    const [TotalPage]=useState(9)
     
     useEffect(()=>{
         dis(getAllCountry())

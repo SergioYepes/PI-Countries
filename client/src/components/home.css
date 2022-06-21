@@ -14,4 +14,5 @@
 .welcome{
     display: flex;
     padding-left: 45%;
+    text-shadow: 1px 1px 10px rgb(241, 179, 10);
 }

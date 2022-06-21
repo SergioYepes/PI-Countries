@@ -22,7 +22,7 @@ const todoBase=async(id)=>{
             // atributes:["name"],
             // through:{
             //     atributes:[]
-            // }
+            //  }
         
     })
 }
@@ -54,6 +54,7 @@ router.post("/activities",async(req,res)=>{
 router.get("/activities",async(req,res)=>{
     try {
         let byActivities = await Activity.findAll({
+            include:[Country]
         });
         return res.json(byActivities)
     } catch (error) {
@@ -61,7 +62,6 @@ router.get("/activities",async(req,res)=>{
     }
 })
 router.get("/countries",async(req,res)=>{
-    console.log("asdasd")
     const{name}=req.query
     const api=await fetch(`${API}`).then(res=>res.json())
     let guarda=[]

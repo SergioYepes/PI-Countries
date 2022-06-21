@@ -3,13 +3,13 @@ import { useDispatch} from "react-redux";
 import "./paginacion.css"
 import { nextHandler,prevHandler } from "../actions"; 
 
-function Paginacion({countryPG,totalPage,setValue,currentValue}){
+function Paginacion({countryPG,TotalPage,setValue,currentValue}){
     const [pageNumberLimit] = useState(5);
     const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
     const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
 
     const pages = []
-    for (let i = 1; i < Math.ceil(countryPG.length / totalPage); i++) {
+    for (let i = 1; i < Math.ceil(countryPG.length / TotalPage); i++) {
         pages.push(i)
     }
 
@@ -85,41 +85,5 @@ function Paginacion({countryPG,totalPage,setValue,currentValue}){
         </ul>
     </div>
     )
-//     const dis=useDispatch()
-// const handleSiguiente=(e)=>{
-//    e.preventDefault()
-//    console.log(allCountries,currentPG)
-//    dis(nextHandler(allCountries,currentPG))
-// }
-
-// const handleAnterior= (e)=>{
-//     console.log(currentPG)
-//     e.preventDefault()
-//     dis(prevHandler(allCountries,currentPG))
-//  }
-
-
-// return(
-//     <div>
-//         <ul className="PageNumbers">
-//             <li>
-//                 <button 
-//                 onClick={e=>handleAnterior(e)}>
-//                     Anterior
-//                 </button>
-//             </li>
-//             <li>
-//                 <p>{currentPG+1}</p>
-//             </li> 
-//             <li>
-//                 <button 
-//                 onClick={e=>handleSiguiente(e)}
-//                 >
-//                     siguiente
-//                 </button>
-//             </li>
-//         </ul>
-//     </div>
-// )
 }
 export default Paginacion

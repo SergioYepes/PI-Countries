@@ -21,8 +21,8 @@ function reducer(state=initialState, {type,payload}){
                 ...state,
                 allCountries:payload,
                 countryPG:payload.slice(0,ITEMPG),
-                BackCountries:payload
-
+                BackCountries:payload,
+                
             }
         // case NEXT_PAGE:
         //     return{
@@ -90,23 +90,22 @@ function reducer(state=initialState, {type,payload}){
                 allCountries:payload
             }
         case FILTER_BY_ACT:
-            // var filterActivities = state.countries.filter((p) => {
-            //     let activities = p.Activi.filter( (a) => a.nombre.includes(payload));
-            // console.log(filterActivities)
-            //     if (activities && activities.length > 0) {
-            //         return true;
-            //     }
-            //     return false;
-            //    });
             if(payload.length !==0){
                 const selectAct=payload
-                const filterAct=state.BackCountries.filter((country)=>{
-                    return selectAct.every(ele=> country.activities.map(activity=>activity.nombre).includes(ele))
+                // console.log(selectAct)
+                // console.log(state.Activi)
+                let filterAct=state.Activi.filter((activity)=>{
+                          return activity.nombre===selectAct[0]     
+            })
+                filterAct=filterAct.map(el=>{
+                    return el.countries
                 })
-                console.log(filterAct)
+
+                console.log(filterAct[0].slice(0,ITEMPG))   
                 return{
                     ...state,
-                    allCountries: filterAct
+                    allCountries:filterAct[0],
+                    countryPG:filterAct[0].slice(0,ITEMPG),
                 }
             }
                 else{
@@ -114,8 +113,7 @@ function reducer(state=initialState, {type,payload}){
                         ...state,
                         allCountries:state.BackCountries
                     }
-                }
-           
+                }    
         default:
             return state  
     }

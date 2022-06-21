@@ -7,11 +7,17 @@
     justify-content: space-around;
     align-items: center;
 }
+.logo{
+    border: 1px solid black;
+}
 .links{
     display:flex;
 }
 .Link{
+    border: 5px groove ;
     text-decoration: none;
+    background-color: var(--contrast);
+    border-radius: 5px;
 }
 .links div{
     display: flex;
@@ -19,6 +25,7 @@
     cursor: pointer;
     color: white;
     padding: 1vh;
+    text-shadow: 1px 1px 10px rgb(241, 179, 10);
 }
 .searchBar{
     display: flex;

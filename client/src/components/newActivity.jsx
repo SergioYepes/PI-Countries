@@ -3,7 +3,7 @@ import {Link,useHistory}from "react-router-dom"
 import {useDispatch,useSelector} from "react-redux"
 import {postActivities,getAllActivities} from "../actions"
 import "./newActivity.css"
-// import validate from "./validate"
+import validate from "./validate"
 
 function NewActivity(){
     const dis=useDispatch()
@@ -18,7 +18,7 @@ function NewActivity(){
         })
     })
     const [select,setSelect]=useState("")
-    // const [errors,setErrors]=useState({firstTry:true})
+    const [errors,setErrors]=useState({firstTry:true})
     const [formulario,setFormulario]=useState({
         nombre:"",Dificultad:"",Temporada:"",countries:[],Duracion:""
     })
@@ -36,6 +36,12 @@ function NewActivity(){
             ...formulario,
             [e.target.name] : e.target.value
         })
+        if(!errors.firstTry){
+            setErrors(validate({
+                ...formulario,
+                [e.target.name]:e.target.value
+            }))
+        }
     }
     function handleSeasons(e){
         if(e.target.value !== "Seleccionar" && !formulario.Temporada.includes(e.target.value)){
@@ -43,6 +49,12 @@ function NewActivity(){
                 ...formulario,
                 Temporada:e.target.value
             })
+            if(!errors.firstTry){
+                setErrors(validate({
+                    ...formulario,
+                    Temporada:e.target.value
+                }))
+            }
         }
     }
     function handleCountries(e){
@@ -51,6 +63,12 @@ function NewActivity(){
                 ...formulario,
                 countries:[...formulario.countries,e.target.value]
             })
+            if(!errors.firstTry){
+                setErrors(validate({
+                    ...formulario,
+                    countries:[...formulario.countries, e.target.value]
+                }))
+            }
         }
     }
     function deleteCountry(e){
@@ -58,26 +76,37 @@ function NewActivity(){
             ...formulario,
             countries:formulario.countries.filter(countries=>countries !== e.target.value)
         })
+        if(!errors.firstTry){
+            setErrors(validate({
+                ...formulario,
+                countries:formulario.countries.filter(countries=>countries !== e.target.value)
+            }))
+        }
     }
     function handleSubmit(e){
         e.preventDefault()
-        if(formulario.nombre && formulario.Dificultad && formulario.Duracion && formulario.Temporada && formulario.countries.length>=1)
+        if(formulario.nombre && formulario.Dificultad && formulario.Duracion && formulario.Temporada && formulario.countries.length>=1){
         dis(postActivities(formulario))
         alert("Se ha creado la actvidad")
         setFormulario({
             nombre:"",Dificultad:"",Temporada:"",countries:[],Duracion:""
         })
+        errors.firstTry=false
         his.push("/home")
+        }
+        if(errors.firstTry){
+            alert("complete los campos correspondientes")
+        }
     }
-    // function handleE(e) {
-    //     e.preventDefault();
-    //     setErrors(validate({
-    //         ...formulario,
-    //         [e.target.name]: e.target.value,
-    //         countries: [...formulario.countries, e.target.value]
-    //     }))
-    //     handleSubmit(e)
-    // }
+    function handleE(e) {
+        e.preventDefault();
+        setErrors(validate({
+            ...formulario,
+            [e.target.name]: e.target.value,
+            countries: [...formulario.countries, e.target.value]
+        }))
+        handleSubmit(e)
+    }
     return(
         <div className="newActivity">
             <Link className="Link" to="/home"><button>Home</button></Link>
@@ -144,7 +173,15 @@ function NewActivity(){
                         )
                     })}
                 </div>
-                <button type="submit">Crear Actividad</button>
+                <div>
+                    {errors.name || 
+                    errors.activity || 
+                    errors.duration || 
+                    errors.season || 
+                    errors.countries ?
+                    <button disabled>Crear Actividad</button>
+                    :<button onClick={e => handleE(e)}>Crear Actividad</button>}
+                    </div>
                 {/* <button onClick={e=> handleC(e)}>XD</button> */}
             </form>
         </div>

@@ -2,12 +2,14 @@
     list-style: none;
     display: flex;
     padding-left: 41%;
+    
 }
 .pageNumbers li{
     padding: 10px;
     border: 1px solid black;
     background-color: azure;
     box-shadow: 1px 1px 10px rgb(241, 10, 199);
+    
 }
 .pageNumbers li.active{
     background-color: black;
@@ -19,6 +21,7 @@
     color: rgb(108, 5, 79);
     font-size: 1.5rem;
     cursor: pointer;  
+    text-shadow: 1px 1px 10px rgb(39, 22, 22);
 }
 .pageNumbers li button:hover{
     background-color: black;

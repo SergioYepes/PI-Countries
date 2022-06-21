@@ -3,12 +3,13 @@
     flex-direction: row;
     font-size: large;
     border-radius: 0px 10px 10px 0px;
-    border: 2px solid rgb(249, 242, 242);
+    border: 5px ridge rgb(249, 242, 242);
     background-color: var(--contrast);
-    width: max-content;
+    width: 100%;
     padding-left: 10px;
     color: rgb(236, 237, 234);
     box-shadow: 1px 1px 10px rgb(241, 10, 199);
+    text-shadow: 1px 1px 10px rgb(241, 179, 10);
 }
 .tittledisplay{
     cursor: pointer;
@@ -18,7 +19,7 @@
 .hiddenFilters{
     display:flex;
     flex-direction: row;
-    gap: 170px;
+    gap: 100px;
 }
 /* #filtersdisplay{
     display:none
