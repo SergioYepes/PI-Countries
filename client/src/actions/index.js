@@ -18,10 +18,10 @@ export const actions={
 }
 const{
     GET_AllCOUNTRY,
-    ITEMPG,
-    NONE,
-    NEXT_PAGE,
-    PREVIOUS_PAGE,
+    // ITEMPG,
+    // NONE,
+    // NEXT_PAGE,
+    // PREVIOUS_PAGE,
     BY_NAME,
     BY_ID,
     GET_ALL_ACTIVITIES,
@@ -38,38 +38,38 @@ export function getAllCountry(){
         return fetch("http://localhost:3001/countries")
         .then(response=> response.json())
         .then(post=> dispatch({type:GET_AllCOUNTRY,payload:post}))
-        .catch(e=>"No se conecto bien")
+        .catch(e=>"No se conecto bien" + e)
     }
 }
-export function nextHandler(allCountries, currentPage){
-    return function(dispatch){
-        let totalElements = allCountries.length;
-        let nextPage = currentPage+1;
-        let firstIndex = nextPage * ITEMPG; //9
-        let endIndex = firstIndex + ITEMPG; //18
-        if(firstIndex >= totalElements) return dispatch({type: NONE, payload:{}});
-        return dispatch({type: NEXT_PAGE, payload:{countryPG: allCountries.slice(firstIndex, endIndex),
-            currentPG: nextPage
-        }});
-    }
-}
-export function prevHandler(allCountries, currentPage){
-    return function(dispatch){
-        let prevPage = currentPage-1;
-        if(prevPage < 0) return dispatch({type: NONE, payload:{}});
-        let firstIndex = prevPage * ITEMPG;
-        let endIndex = currentPage * ITEMPG;
-        return dispatch({type: PREVIOUS_PAGE, payload:{countryPG: allCountries.slice(firstIndex, endIndex),
-            currentPG: prevPage
-        }});
-    }
-}
+// export function nextHandler(allCountries, currentPage){
+//     return function(dispatch){
+//         let totalElements = allCountries.length;
+//         let nextPage = currentPage+1;
+//         let firstIndex = nextPage * ITEMPG; //9
+//         let endIndex = firstIndex + ITEMPG; //18
+//         if(firstIndex >= totalElements) return dispatch({type: NONE, payload:{}});
+//         return dispatch({type: NEXT_PAGE, payload:{countryPG: allCountries.slice(firstIndex, endIndex),
+//             currentPG: nextPage
+//         }});
+//     }
+// }
+// export function prevHandler(allCountries, currentPage){
+//     return function(dispatch){
+//         let prevPage = currentPage-1;
+//         if(prevPage < 0) return dispatch({type: NONE, payload:{}});
+//         let firstIndex = prevPage * ITEMPG;
+//         let endIndex = currentPage * ITEMPG;
+//         return dispatch({type: PREVIOUS_PAGE, payload:{countryPG: allCountries.slice(firstIndex, endIndex),
+//             currentPG: prevPage
+//         }});
+//     }
+// }
 export function byName(payload){
     return function(dispatch){
         return fetch(`http://localhost:3001/countries?name=${payload}`)
-        .then(response=> response.json())
+        .then(response=>response.json())
         .then(post=> dispatch({type:BY_NAME,payload:post}))
-        .catch(e=>"No se conecto bien")
+        .catch(e=>alert("El pais no existe"))
     }
 }
 export function byId(id){
@@ -77,6 +77,7 @@ export function byId(id){
         try {
             const res= await fetch(`http://localhost:3001/countries/${id}`)
             const response= await res.json()
+            console.log(response)
             return dispatch({type:BY_ID,payload:response})
             
         } catch (error) {

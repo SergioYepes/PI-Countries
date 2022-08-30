@@ -2,7 +2,6 @@ import React from "react";
 import Card from "./card";
 import "./cards.css"
 function Cards({countryPG}){
-    console.log(countryPG[0])
     return (
         <div className="cards">
             

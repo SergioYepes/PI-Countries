@@ -101,7 +101,7 @@ router.get("/countries",async(req,res)=>{
     return res.json(paises)
     }
     catch(error){
-        console.log("error")
+        res.status(404).send(error)
     }
 } else {
     try{
@@ -125,7 +125,7 @@ router.get("/countries",async(req,res)=>{
      res.json(guarda)
     }
     catch (error) {
-        console.log("error")
+        res.status(404).send(error)
     }
 }
 
@@ -139,7 +139,7 @@ router.get('/countries/:id', async (req, res)=>{
         res.status(404).send(`El código '${id}' no corresponde a un pais existente`)
             
     } catch (error) {
-        console.log(error)
+        res.send(404).send(error)
     }
 });
 router.get("/asc",async(req,res)=>{

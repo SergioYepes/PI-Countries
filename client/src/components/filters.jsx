@@ -51,7 +51,6 @@ function Filter(){
         dis(getAllActivities())
         dis(filterByAct(act))
     },[dis,act])
-    console.log(allActivities)
     const continentes=()=>{
         let lista=countries.map(country=>country.Continent)
         let continentes=lista.filter((continent,index)=>{

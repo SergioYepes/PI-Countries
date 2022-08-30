@@ -39,7 +39,10 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,allowNull: false,defaultValue:"Other",
        },
        Area:{
-         type: DataTypes.FLOAT
+         type: DataTypes.FLOAT,
+         get(){
+          return this.getDataValue("Area") + " Km"
+         }
        },
        Poblacion:{
          type: DataTypes.INTEGER

@@ -109,9 +109,9 @@ function NewActivity(){
     }
     return(
         <div className="newActivity">
-            <Link className="Link" to="/home"><button>Home</button></Link>
+            <Link className="Link" to="/home"><button className="buton">Home</button></Link>
             <form className="formActivty" onSubmit={e=>handleSubmit(e)}>
-            <h1>Crea la nueva actividad</h1>
+            <h1 className="Create">Crea la nueva actividad</h1>
                 <div className="info">
                     <label>nombre:</label>
                     <input
@@ -119,8 +119,10 @@ function NewActivity(){
                     value={formulario.nombre}
                     name="nombre" 
                     onChange={e=>handleChange(e)}
+                    placeholder="Inserte valor..."
                     />
                 </div>
+                <br/>
                 <div className="info">
                 <label>Dificultad (De 1 a 5):</label>
                     <input
@@ -128,8 +130,10 @@ function NewActivity(){
                     value={formulario.Dificultad}
                     name="Dificultad" 
                     onChange={e=>handleChange(e)}
+                    placeholder="Inserte valor..."
                     />
                 </div>
+                <br/>
                 <div className="info">
                     <h3>Temporada</h3>
                     <select onChange={e=>handleSeasons(e)}>
@@ -140,6 +144,7 @@ function NewActivity(){
                         <option value="Invierno">Invierno</option>
                     </select>
                 </div>
+                <br/>
                 <div className="info">
                     <label>Duracion(de 24 Horas)</label>
                         <input
@@ -147,22 +152,29 @@ function NewActivity(){
                         name="Duracion"
                         value={formulario.Duracion}
                         onChange={e=>handleChange(e)}
+                        placeholder="Inserte valor..."
                         />
                 </div>
+                <br/>
                 <div className="info">
                     <h3>Paises</h3>
                     <select value={select} onChange={e=>[handleCountries(e),setSelect(e)]}>
                     <option>Seleccionar</option>
-                    {ListaDuPaisiños?.map(country=>{
+                    {ListaDuPaisiños?.sort((a,b)=>{
+                        if(a.name<b.name) return -1;
+                        if(a.name>b.name) return 1
+                        return 0
+                    }).map(country=>{
                         return(
                             <option key={country.name}>
                                 {country.name}
+                                
                             </option>
                         )
                     })}
                     </select>
                 </div>
-
+                <br/>
                 <div className="displayCountries">
                     {formulario.countries.map((country)=>{
                         return(
@@ -173,16 +185,18 @@ function NewActivity(){
                         )
                     })}
                 </div>
+                <br/>
                 <div>
                     {errors.name || 
                     errors.activity || 
                     errors.duration || 
                     errors.season || 
                     errors.countries ?
-                    <button disabled>Crear Actividad</button>
-                    :<button onClick={e => handleE(e)}>Crear Actividad</button>}
+                    <button  disabled>Crear Actividad</button>
+                    :<button className="Boton" onClick={e => handleE(e)}>Crear Actividad</button>}
                     </div>
                 {/* <button onClick={e=> handleC(e)}>XD</button> */}
+                <br/>
             </form>
         </div>
     )

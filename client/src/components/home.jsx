@@ -35,6 +35,9 @@ function Home(){
             <div className="Filters">
                 <Filter/>
             </div>
+            <div className="paginado"> 
+            <Paginacion countryPG={countryPG} TotalPage={TotalPage} setValue={setValue} currentValue={currentValue}/> 
+            </div>
             <div className="Cards">
                 <Cards countryPG={currentItems}/>
             </div>

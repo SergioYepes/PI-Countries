@@ -17,6 +17,7 @@ const initialState={
 function reducer(state=initialState, {type,payload}){
     switch(type){
         case GET_AllCOUNTRY:
+            console.log(state.allCountries)
             return{
                 ...state,
                 allCountries:payload,

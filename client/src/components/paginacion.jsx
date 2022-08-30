@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import { useDispatch} from "react-redux";
+// import { useDispatch} from "react-redux";
 import "./paginacion.css"
-import { nextHandler,prevHandler } from "../actions"; 
+// import { nextHandler,prevHandler } from "../actions"; 
 
 function Paginacion({countryPG,TotalPage,setValue,currentValue}){
     const [pageNumberLimit] = useState(5);
@@ -21,7 +21,7 @@ function Paginacion({countryPG,TotalPage,setValue,currentValue}){
     const handleNextbtn = () =>{
         setValue(currentValue + 1);
 
-        if(currentValue + 1 > maxPageNumberLimit){
+        if(currentValue + 1 >= maxPageNumberLimit){
             setMaxPageNumberLimit(maxPageNumberLimit + pageNumberLimit);
             setMinPageNumberLimit(minPageNumberLimit + pageNumberLimit);
         }
